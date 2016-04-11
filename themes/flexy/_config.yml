@@ -1,0 +1,15 @@
+# config
+logo: /blog/images/svdb.png
+keywords: "Nikhil Handa, slayslot, blogging, personal, mozilla, mozpacers, delhi, ui, ux, interface, front end, design, user, developer"
+#pubkey: 13DB CAA1 2633 81A7
+menu:
+  Home: /
+#  Articles: /articles
+#  About: /about
+
+# Content
+excerpt_link: Read more
+
+# Miscellaneous
+rss: /atom.xml
+google_analytics:

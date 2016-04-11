@@ -1,0 +1,40 @@
+<% if (post.original != false && !is_page()){ %>
+    <div class="copyright">
+        <p><span>Title:</span><a href="<%- url_for(post.path) %>"><%= post.title %></a></p>
+        <p><span>Author:</span><a href="/" title="访问 <%=theme.author%> 的个人博客"><%=theme.author%></a></p>
+        <p><span>Written on:</span><%= post.date.format("YYYY/MM/DD - HH:mm") %></p>
+        <p><span>Last Updated on:</span><%= post.updated.format("YYYY/MM/DD/ - HH:mm") %></p>
+        <p>
+            <span>Sharable Link:</span><a class="post-url" href="<%- url_for(post.path) %>" title="<%= post.title %>"><%= post.permalink %></a>
+            <span class="copy-path" data-clipboard-text="原文: <%= post.permalink %>　　作者: <%=theme.author%>" title="Copy to clipboard"><i class="fa fa-clipboard"></i></span>
+            <script src="<%- config.root %>js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0" target = "_blank">Attribution-NonCommercial-ShareAlike 4.0</a> If reproduced, please retain author and links.
+        </p>
+    </div>
+<% } %>
+
+<% if (post.prev || post.next){ %>
+<nav id="article-nav">
+  <% if (post.prev){ %>
+    <a href="<%- url_for(post.prev.path) %>" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        <% if (post.prev.title){ %>
+          <%= post.prev.title %>
+        <% } else { %>
+          (no title)
+        <% } %>
+      </div>
+    </a>
+  <% } %>
+  <% if (post.next){ %>
+    <a href="<%- url_for(post.next.path) %>" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"><%= post.next.title %></div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  <% } %>
+</nav>
+<% } %>
